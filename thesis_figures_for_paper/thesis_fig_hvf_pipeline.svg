@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="806.4pt" height="273.6pt" viewBox="0 0 806.4 273.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-03-18T21:36:23.099720</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 273.6 
+L 806.4 273.6 
+L 806.4 -0 
+L 0 -0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 46.8 167.904 
+L 165.6 167.904 
+L 165.6 105.696 
+L 46.8 105.696 
+z
+" clip-path="url(#p6ca2c29774)" style="fill: #ffffff; stroke: #1f3a5f; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 193.32 167.904 
+L 312.12 167.904 
+L 312.12 105.696 
+L 193.32 105.696 
+z
+" clip-path="url(#p6ca2c29774)" style="fill: #ffffff; stroke: #1f3a5f; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 339.84 167.904 
+L 458.64 167.904 
+L 458.64 105.696 
+L 339.84 105.696 
+z
+" clip-path="url(#p6ca2c29774)" style="fill: #ffffff; stroke: #1f3a5f; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 486.36 167.904 
+L 605.16 167.904 
+L 605.16 105.696 
+L 486.36 105.696 
+z
+" clip-path="url(#p6ca2c29774)" style="fill: #ffffff; stroke: #1f3a5f; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 632.88 167.904 
+L 751.68 167.904 
+L 751.68 105.696 
+L 632.88 105.696 
+z
+" clip-path="url(#p6ca2c29774)" style="fill: #ffffff; stroke: #1f3a5f; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 167.599819 136.8 
+Q 179.459925 136.8 189.922487 136.8 
+" clip-path="url(#p6ca2c29774)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 185.122487 134.4 
+L 189.922487 136.8 
+L 185.122487 139.2 
+z
+" clip-path="url(#p6ca2c29774)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 314.119819 136.8 
+Q 325.979925 136.8 336.442487 136.8 
+" clip-path="url(#p6ca2c29774)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 331.642487 134.4 
+L 336.442487 136.8 
+L 331.642487 139.2 
+z
+" clip-path="url(#p6ca2c29774)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 460.639819 136.8 
+Q 472.499925 136.8 482.962487 136.8 
+" clip-path="url(#p6ca2c29774)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 478.162487 134.4 
+L 482.962487 136.8 
+L 478.162487 139.2 
+z
+" clip-path="url(#p6ca2c29774)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 607.159819 136.8 
+Q 619.019925 136.8 629.482487 136.8 
+" clip-path="url(#p6ca2c29774)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 624.682487 134.4 
+L 629.482487 136.8 
+L 624.682487 139.2 
+z
+" clip-path="url(#p6ca2c29774)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="46.8" y="38.103187" transform="rotate(-0 46.8 38.103187)">HVF Pipeline</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9.3px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="46.8" y="47.353687" transform="rotate(-0 46.8 47.353687)">Baseline robust multi-model fitting with one fixed inlier threshold.</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(95.435016 133.909894)">Input</text>
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(72.214078 144.590887)">correspondences</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(229.769203 133.890769)">Hypothesis</text>
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(231.196406 144.590887)">generation</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(370.767656 133.909894)">Residuals and</text>
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(363.138375 144.590887)">preference matrix</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(506.251734 133.890769)">Hierarchical voting</text>
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(517.009547 144.590887)">and clustering</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(657.298781 133.909894)">Model extraction</text>
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(671.744531 144.590887)">and labels</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="403.2" y="227.177391" transform="rotate(-0 403.2 227.177391)">Baseline HVF relies on a fixed inlier threshold throughout preference construction and downstream model separation.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p6ca2c29774">
+   <rect x="7.2" y="7.2" width="792" height="259.2"/>
+  </clipPath>
+ </defs>
+</svg>

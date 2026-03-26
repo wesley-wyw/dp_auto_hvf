@@ -1,0 +1,41 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local tooling
+.cursor/
+.pytest_cache/
+pytest-cache-files-*/
+
+# Generated outputs
+outputs/
+
+# Adelaide auxiliary images exported from the public dataset bundle
+/2019_CVPR_Fitting Multiple Heterogeneous Models by Multi-class Cascaded T-linkage_Datasets_AdelaideCubeFH/AdelaideCubeFH/_exported_images/
+/2019_CVPR_Fitting Multiple Heterogeneous Models by Multi-class Cascaded T-linkage_Datasets_AdelaideCubeFH/AdelaideCubeFH/*/img*.png
+/2019_CVPR_Fitting Multiple Heterogeneous Models by Multi-class Cascaded T-linkage_Datasets_AdelaideCubeFH/AdelaideCubeFH/img*.png
+
+# Root-level thesis drafts and exports
+/*.doc
+/*.docx
+/*.pdf
+/*_pdf.txt
+/pdf_page*.png
+/~$*
+/*.tmp
+
+# Root-level thesis notes not intended for the public repo
+/BASELINE_REVISION_FOR_DRAFT.md
+/CHAPTER4_CORE_DRAFT.md
+/CHAPTER4_CORE_DRAFT.docx
+/HANDOFF.md
+/HANDOFF_CN.md
+/THESIS_*.md
+/_docx_extract_ch2_ch3.txt
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+__MACOSX/
+._*

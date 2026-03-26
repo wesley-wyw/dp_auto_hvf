@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="820.8pt" height="374.4pt" viewBox="0 0 820.8 374.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-03-18T21:36:28.694731</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 374.4 
+L 820.8 374.4 
+L 820.8 -0 
+L -0 -0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 47.52 176.4 
+L 249.12 176.4 
+L 249.12 79.2 
+L 47.52 79.2 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #ffffff; stroke: #1f3a5f; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 47.52 104.4 
+L 249.12 104.4 
+L 249.12 79.2 
+L 47.52 79.2 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #eef2f5; stroke: #1f3a5f; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 293.472 176.4 
+L 495.072 176.4 
+L 495.072 79.2 
+L 293.472 79.2 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #ffffff; stroke: #4e8da3; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 293.472 104.4 
+L 495.072 104.4 
+L 495.072 79.2 
+L 293.472 79.2 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #eef2f5; stroke: #4e8da3; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 539.424 176.4 
+L 741.024 176.4 
+L 741.024 79.2 
+L 539.424 79.2 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 539.424 104.4 
+L 741.024 104.4 
+L 741.024 79.2 
+L 539.424 79.2 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #eef2f5; stroke: #e67e22; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 103.968 244.8 
+L 716.832 244.8 
+L 716.832 208.8 
+L 103.968 208.8 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #ffffff; stroke: #bfc5cc; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 103.968 225 
+L 716.832 225 
+L 716.832 208.8 
+L 103.968 208.8 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #eef2f5; stroke: #bfc5cc; stroke-width: 1.3; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 103.968 313.2 
+L 716.832 313.2 
+L 716.832 266.4 
+L 103.968 266.4 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #ffffff; stroke: #bfc5cc; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 103.968 284.4 
+L 716.832 284.4 
+L 716.832 266.4 
+L 103.968 266.4 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #eef2f5; stroke: #bfc5cc; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 148.32 178.397314 
+Q 148.32 192.598471 148.32 205.457987 
+" clip-path="url(#p4b7aa499db)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 150.72 200.657987 
+L 148.32 205.457987 
+L 145.92 200.657987 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 394.272 178.397314 
+Q 394.272 192.598471 394.272 205.457987 
+" clip-path="url(#p4b7aa499db)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 396.672 200.657987 
+L 394.272 205.457987 
+L 391.872 200.657987 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 640.224 178.397314 
+Q 640.224 192.598471 640.224 205.457987 
+" clip-path="url(#p4b7aa499db)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 642.624 200.657987 
+L 640.224 205.457987 
+L 637.824 200.657987 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 410.4 246.80127 
+Q 410.4 255.602994 410.4 263.063078 
+" clip-path="url(#p4b7aa499db)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 412.8 258.263078 
+L 410.4 263.063078 
+L 408 258.263078 
+z
+" clip-path="url(#p4b7aa499db)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="47.52" y="38.967188" transform="rotate(-0 47.52 38.967188)">AdelaideRMF Task Setup</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 9.6px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="47.52" y="49.866" transform="rotate(-0 47.52 49.866)">The real-data evaluation covers three scene families, with mixed scenes introducing the strongest cross-geometry ambiguity.</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #1f3a5f" x="59.616" y="94.265547" transform="rotate(-0 59.616 94.265547)">Fundamental</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="62.0352" y="119.649375" transform="rotate(-0 62.0352 119.649375)">Two-view epipolar structure</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="62.0352" y="140.529375" transform="rotate(-0 62.0352 140.529375)">Single-family geometry</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="62.0352" y="161.409375" transform="rotate(-0 62.0352 161.409375)">Separate multiple F models</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #4e8da3" x="305.568" y="94.255234" transform="rotate(-0 305.568 94.255234)">Homography</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="307.9872" y="119.649375" transform="rotate(-0 307.9872 119.649375)">Planar / near-planar structure</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="307.9872" y="140.529375" transform="rotate(-0 307.9872 140.529375)">Single-family geometry</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="307.9872" y="161.409375" transform="rotate(-0 307.9872 161.409375)">Separate multiple H models</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #e67e22" x="551.52" y="94.265547" transform="rotate(-0 551.52 94.265547)">Mixed</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="553.9392" y="119.649375" transform="rotate(-0 553.9392 119.649375)">Fundamental + homography coexist</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="553.9392" y="140.529375" transform="rotate(-0 553.9392 140.529375)">Cross-type comparison</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="553.9392" y="161.409375" transform="rotate(-0 553.9392 161.409375)">F/H comparability</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 10.1px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="116.064" y="219.053258" transform="rotate(-0 116.064 219.053258)">Shared evaluation target</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="118.4832" y="236.155781" transform="rotate(-0 118.4832 236.155781)">Estimate multiple structures, reject outliers, and preserve agreement with scene-level ground truth under one unified protocol.</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 10.3px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="116.064" y="277.789117" transform="rotate(-0 116.064 277.789117)">Unified post-DP real-data evaluation</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 9.1px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="118.4832" y="293.777602" transform="rotate(-0 118.4832 293.777602)">ARI / NMI / label purity / IoU matching / runtime / privacy trade-off</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 8.9px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="118.4832" y="305.249742" transform="rotate(-0 118.4832 305.249742)">Common output view: predicted labels, model count, fitting quality, and privacy cost</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 9.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="410.4" y="344.201531" transform="rotate(-0 410.4 344.201531)">Mixed scenes are the most demanding because the evaluation must compare structures across different geometric families without changing the protocol.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p4b7aa499db">
+   <rect x="7.2" y="7.2" width="806.4" height="360"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="777.6pt" height="316.8pt" viewBox="0 0 777.6 316.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-03-18T21:36:26.539193</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 316.8 
+L 777.6 316.8 
+L 777.6 -0 
+L 0 -0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 60.624 158.4 
+L 182.736 158.4 
+L 182.736 110.016 
+L 60.624 110.016 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 266.688 158.4 
+L 419.328 158.4 
+L 419.328 110.016 
+L 266.688 110.016 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #eef2f5; stroke: #e67e22; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 480.384 158.4 
+L 633.024 158.4 
+L 633.024 110.016 
+L 480.384 110.016 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #eef2f5; stroke: #e67e22; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 184.736931 134.208 
+Q 224.713337 134.208 263.2922 134.208 
+" clip-path="url(#p6ad28d93f5)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 258.4922 131.808 
+L 263.2922 134.208 
+L 258.4922 136.608 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 421.329164 134.208 
+Q 449.856355 134.208 476.986004 134.208 
+" clip-path="url(#p6ad28d93f5)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 472.186004 131.808 
+L 476.986004 134.208 
+L 472.186004 136.608 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 243.792 246.096 
+L 335.376 246.096 
+L 335.376 209.808 
+L 243.792 209.808 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 350.64 246.096 
+L 442.224 246.096 
+L 442.224 209.808 
+L 350.64 209.808 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 341.570013 159.783724 
+Q 316.298858 184.10125 291.994452 207.488509 
+" clip-path="url(#p6ad28d93f5)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 297.117309 205.889655 
+L 291.994452 207.488509 
+L 293.789083 202.430911 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 344.445987 159.783724 
+Q 369.717142 184.10125 394.021548 207.488509 
+" clip-path="url(#p6ad28d93f5)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 392.226917 202.430911 
+L 394.021548 207.488509 
+L 388.898691 205.889655 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 510.912 246.096 
+L 602.496 246.096 
+L 602.496 209.808 
+L 510.912 209.808 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 617.76 246.096 
+L 709.344 246.096 
+L 709.344 209.808 
+L 617.76 209.808 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 556.704 160.398712 
+Q 556.704 184.10365 556.704 206.466948 
+" clip-path="url(#p6ad28d93f5)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 559.104 201.666948 
+L 556.704 206.466948 
+L 554.304 201.666948 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 604.027617 159.689593 
+Q 633.025045 184.10488 660.996174 207.656043 
+" clip-path="url(#p6ad28d93f5)" style="fill: none; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 658.870169 202.728559 
+L 660.996174 207.656043 
+L 655.778584 206.400357 
+z
+" clip-path="url(#p6ad28d93f5)" style="fill: #bfc5cc; stroke: #bfc5cc; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="45.36" y="35.511187" transform="rotate(-0 45.36 35.511187)">DP Budget Allocation</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(94.706578 131.298769)">Total privacy</text>
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; fill: #333333" transform="translate(107.799234 141.998887)">budget</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="343.008" y="136.658391" transform="rotate(-0 343.008 136.658391)">Equal allocation</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="556.704" y="136.658391" transform="rotate(-0 556.704 136.658391)">Manual allocation</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="289.584" y="230.392828" transform="rotate(-0 289.584 230.392828)">Scoring</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="396.432" y="230.402391" transform="rotate(-0 396.432 230.402391)">Selection</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 9.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="343.008" y="190.841531" transform="rotate(-0 343.008 190.841531)">split evenly</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="556.704" y="230.392828" transform="rotate(-0 556.704 230.392828)">Scoring</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="663.552" y="230.402391" transform="rotate(-0 663.552 230.402391)">Selection</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="610.128" y="190.841531" transform="rotate(-0 610.128 190.841531)">weighted by importance</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="388.8" y="287.659594" transform="rotate(-0 388.8 287.659594)">The codebase supports both equal and manual budget splits so privacy can be analyzed at the injection-point level.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p6ad28d93f5">
+   <rect x="7.2" y="7.2" width="763.2" height="302.4"/>
+  </clipPath>
+ </defs>
+</svg>

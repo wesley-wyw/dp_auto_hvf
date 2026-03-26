@@ -9,9 +9,12 @@ import numpy as np
 class ClusteringConfig:
     """Configuration for hypothesis clustering."""
 
-    parameter_distance_threshold: float = 0.12
-    jaccard_threshold: float = 0.55
-    min_cluster_size: int = 2
+    parameter_distance_threshold: float = 0.08
+    jaccard_threshold: float = 0.75
+    cross_type_jaccard_threshold: float = 0.90
+    min_cluster_size: int = 1
+    use_parameter_links_for_cross_type: bool = False
+    support_threshold: float = 0.95
 
 
 @dataclass(frozen=True)
@@ -20,6 +23,7 @@ class ClusterResult:
 
     clusters: list[np.ndarray]
     adjacency_matrix: np.ndarray
+
 
 
 def _pairwise_jaccard(binary_matrix: np.ndarray) -> np.ndarray:
@@ -36,6 +40,7 @@ def _pairwise_jaccard(binary_matrix: np.ndarray) -> np.ndarray:
             similarity[i, j] = score
             similarity[j, i] = score
     return similarity
+
 
 
 def _connected_components(adjacency: np.ndarray) -> list[np.ndarray]:
@@ -64,28 +69,56 @@ def _connected_components(adjacency: np.ndarray) -> list[np.ndarray]:
     return components
 
 
+
 def cluster_hypotheses(
     hypotheses: np.ndarray,
     preference_matrix: np.ndarray,
     config: ClusteringConfig,
+    hypothesis_model_types: np.ndarray | None = None,
 ) -> ClusterResult:
     """Cluster hypotheses using parameter distance and consensus overlap (Jaccard)."""
     models = np.asarray(hypotheses, dtype=float)
     preferences = np.asarray(preference_matrix, dtype=float)
 
-    if models.ndim != 2 or models.shape[1] != 3:
-        raise ValueError("hypotheses must have shape (M, 3)")
+    if models.ndim != 2 or models.shape[0] == 0:
+        raise ValueError("hypotheses must have shape (M, D) with M > 0")
     if preferences.ndim != 2 or preferences.shape[1] != models.shape[0]:
         raise ValueError("preference_matrix must have shape (N, M)")
+
+    model_types: np.ndarray | None = None
+    if hypothesis_model_types is not None:
+        model_types = np.asarray(hypothesis_model_types, dtype=object)
+        if model_types.ndim != 1 or model_types.shape[0] != models.shape[0]:
+            raise ValueError("hypothesis_model_types must have shape (M,)")
 
     parameter_distances = np.linalg.norm(models[:, None, :] - models[None, :, :], axis=2)
     parameter_links = parameter_distances <= config.parameter_distance_threshold
 
-    binary_preferences = preferences > 0.0
+    binary_preferences = preferences >= float(config.support_threshold)
     jaccard_similarity = _pairwise_jaccard(binary_preferences)
-    consensus_links = jaccard_similarity >= config.jaccard_threshold
 
-    adjacency = np.logical_or(parameter_links, consensus_links)
+    if model_types is None or np.unique(model_types).size <= 1:
+        consensus_links = jaccard_similarity >= config.jaccard_threshold
+        adjacency = np.logical_or(parameter_links, consensus_links)
+    else:
+        same_type = model_types[:, None] == model_types[None, :]
+        cross_type = ~same_type
+
+        same_consensus_links = np.logical_and(jaccard_similarity >= config.jaccard_threshold, same_type)
+        cross_consensus_links = np.logical_and(
+            jaccard_similarity >= config.cross_type_jaccard_threshold,
+            cross_type,
+        )
+
+        same_parameter_links = np.logical_and(parameter_links, same_type)
+        if config.use_parameter_links_for_cross_type:
+            cross_parameter_links = np.logical_and(parameter_links, cross_type)
+            adjacency = np.logical_or.reduce(
+                (same_parameter_links, same_consensus_links, cross_consensus_links, cross_parameter_links)
+            )
+        else:
+            adjacency = np.logical_or.reduce((same_parameter_links, same_consensus_links, cross_consensus_links))
+
     np.fill_diagonal(adjacency, True)
 
     raw_components = _connected_components(adjacency)

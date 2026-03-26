@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="806.4pt" height="345.6pt" viewBox="0 0 806.4 345.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-03-18T21:36:27.636189</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 345.6 
+L 806.4 345.6 
+L 806.4 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 46.8 252.288 
+L 189.36 252.288 
+L 189.36 113.184 
+L 46.8 113.184 
+z
+" clip-path="url(#p82081bd0d6)" style="fill: #ffffff; stroke: #1f3a5f; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 46.8 139.68 
+L 189.36 139.68 
+L 189.36 113.184 
+L 46.8 113.184 
+z
+" clip-path="url(#p82081bd0d6)" style="fill: #eef2f5; stroke: #1f3a5f; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 236.88 252.288 
+L 379.44 252.288 
+L 379.44 113.184 
+L 236.88 113.184 
+z
+" clip-path="url(#p82081bd0d6)" style="fill: #ffffff; stroke: #4e8da3; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 236.88 139.68 
+L 379.44 139.68 
+L 379.44 113.184 
+L 236.88 113.184 
+z
+" clip-path="url(#p82081bd0d6)" style="fill: #eef2f5; stroke: #4e8da3; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 426.96 252.288 
+L 569.52 252.288 
+L 569.52 113.184 
+L 426.96 113.184 
+z
+" clip-path="url(#p82081bd0d6)" style="fill: #ffffff; stroke: #1f3a5f; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 426.96 139.68 
+L 569.52 139.68 
+L 569.52 113.184 
+L 426.96 113.184 
+z
+" clip-path="url(#p82081bd0d6)" style="fill: #eef2f5; stroke: #1f3a5f; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 617.04 252.288 
+L 759.6 252.288 
+L 759.6 113.184 
+L 617.04 113.184 
+z
+" clip-path="url(#p82081bd0d6)" style="fill: #ffffff; stroke: #e67e22; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 617.04 139.68 
+L 759.6 139.68 
+L 759.6 113.184 
+L 617.04 113.184 
+z
+" clip-path="url(#p82081bd0d6)" style="fill: #eef2f5; stroke: #e67e22; stroke-width: 1.35; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="46.8" y="37.239187" transform="rotate(-0 46.8 37.239187)">Evaluation Metric System</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #1f3a5f" x="58.68" y="128.788359" transform="rotate(-0 58.68 128.788359)">Fitting quality</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="61.056" y="165.122203" transform="rotate(-0 61.056 165.122203)">Precision</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="61.056" y="198.242203" transform="rotate(-0 61.056 198.242203)">Recall</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="61.056" y="231.362203" transform="rotate(-0 61.056 231.362203)">Inlier F1</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #4e8da3" x="248.76" y="128.788359" transform="rotate(-0 248.76 128.788359)">Clustering quality</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="251.136" y="165.122203" transform="rotate(-0 251.136 165.122203)">ARI</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="251.136" y="198.242203" transform="rotate(-0 251.136 198.242203)">NMI</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="251.136" y="231.353391" transform="rotate(-0 251.136 231.353391)">Label purity</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #1f3a5f" x="438.84" y="128.788359" transform="rotate(-0 438.84 128.788359)">Matching quality</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="441.216" y="165.122203" transform="rotate(-0 441.216 165.122203)">GT best IoU</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="441.216" y="198.242203" transform="rotate(-0 441.216 198.242203)">Pred best IoU</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="441.216" y="231.362203" transform="rotate(-0 441.216 231.362203)">Match IoU</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 10.2px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #e67e22" x="628.92" y="128.788359" transform="rotate(-0 628.92 128.788359)">Runtime and privacy</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="631.296" y="165.122203" transform="rotate(-0 631.296 165.122203)">Runtime</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="631.296" y="198.242203" transform="rotate(-0 631.296 198.242203)">Epsilon</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: start; fill: #333333" x="631.296" y="231.362203" transform="rotate(-0 631.296 231.362203)">Noise scale</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 9.4px; font-family: 'Times New Roman', 'Times', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="403.2" y="300.905391" transform="rotate(-0 403.2 300.905391)">The thesis evaluates fitting, clustering, matching, runtime, and privacy cost as complementary aspects of robust multi-model fitting performance.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p82081bd0d6">
+   <rect x="7.2" y="7.2" width="792" height="331.2"/>
+  </clipPath>
+ </defs>
+</svg>
