@@ -17,6 +17,7 @@ from experiments.adelaide_baseline_compare import (
 )
 from experiments.adelaide_runner import AdelaideExperimentConfig, run_adelaide_experiments
 from experiments.runner import ExperimentConfig, run_experiments
+from experiments.thesis_tables import ThesisExperimentConfig, run_thesis_experiment
 from hvf.pipeline import HVFConfig, HVFPipeline
 from privacy.dp_pipeline import DPHVFConfig, apply_dp_hvf
 
@@ -90,6 +91,16 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--baseline-fixed-tau", type=float, default=0.05)
     parser.add_argument("--mixed-calibration-modes", choices=["on", "off", "both"], default="on")
     parser.add_argument("--mixed-calibration-quantile", type=float, default=0.5)
+    parser.add_argument(
+        "--run-thesis-table",
+        action="store_true",
+        help="Generate thesis-ready comparison table (Xiao et al. format)",
+    )
+    parser.add_argument("--thesis-model-family", type=str, default="homography")
+    parser.add_argument("--thesis-num-seeds", type=int, default=10)
+    parser.add_argument("--thesis-fixed-tau-tuned", type=float, default=None,
+                        help="Optional tuned fixed tau for extra HVF baseline column")
+    parser.add_argument("--thesis-dp-epsilons", nargs="+", type=float, default=[2.0, 1.0, 0.5, 0.2])
     return parser
 
 
@@ -234,6 +245,27 @@ def main() -> None:
             bundle.saved_files.get("csv", ""),
             bundle.saved_files.get("summary_csv", ""),
         )
+        return
+
+    if args.run_thesis_table:
+        if not args.adelaide_root:
+            raise ValueError("--adelaide-root is required with --run-thesis-table")
+        result = run_thesis_experiment(
+            ThesisExperimentConfig(
+                dataset_root=args.adelaide_root,
+                output_dir=args.output_dir,
+                model_family=args.thesis_model_family,
+                num_hypotheses=args.hypothesis_count,
+                num_seeds=args.thesis_num_seeds,
+                fixed_tau=float(args.baseline_fixed_tau),
+                fixed_tau_tuned=args.thesis_fixed_tau_tuned,
+                dp_epsilons=tuple(args.thesis_dp_epsilons),
+                mixed_calibration_quantile=float(args.mixed_calibration_quantile),
+                limit_files=args.adelaide_limit_files,
+            )
+        )
+        print(result.table_text)
+        LOGGER.info("Thesis table saved to %s", result.table_path)
         return
 
     if args.run_adelaide_experiments:

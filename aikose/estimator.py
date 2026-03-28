@@ -21,6 +21,7 @@ class AIKOSEConfig:
     min_tau: float = 1e-5
     fallback_method: str = "mad"
     fallback_quantile: float = 0.20
+    log_space: bool = True
 
 
 @dataclass(frozen=True)
@@ -71,7 +72,11 @@ def estimate_single_scale(residuals: np.ndarray, config: AIKOSEConfig) -> ScaleE
         )
 
     sorted_residuals = np.sort(vector)
-    gradients = np.diff(sorted_residuals)
+    if config.log_space:
+        log_residuals = np.log1p(sorted_residuals)
+        gradients = np.diff(log_residuals)
+    else:
+        gradients = np.diff(sorted_residuals)
 
     lower = max(config.k_min, 1)
     upper = int(config.search_upper_quantile * sorted_residuals.size)

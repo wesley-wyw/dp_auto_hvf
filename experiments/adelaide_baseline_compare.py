@@ -54,6 +54,7 @@ def _build_summary_records(records: list[dict[str, Any]]) -> list[dict[str, Any]
         return []
 
     numeric_keys = (
+        "misclassification_error",
         "inlier_f1",
         "inlier_precision",
         "inlier_recall",

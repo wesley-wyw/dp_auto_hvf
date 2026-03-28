@@ -75,6 +75,95 @@ def _plot_labeled_points_on_axis(
     axis.set_aspect("equal")
 
 
+def plot_thesis_fitting_result(
+    points: np.ndarray,
+    predicted_labels: np.ndarray,
+    true_labels: np.ndarray,
+    output_path: str | Path,
+    *,
+    sample_name: str = "",
+    method_name: str = "",
+    error_pct: float | None = None,
+) -> None:
+    """Thesis-style fitting result figure (Xiao et al. format).
+
+    Row 1: input data with ground-truth coloring.
+    Row 2: algorithm result with predicted coloring.
+    Each point colored by model assignment; outliers in gray.
+    """
+    output = Path(output_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    true_arr = np.asarray(true_labels, dtype=int)
+    pred_arr = np.asarray(predicted_labels, dtype=int)
+    pts = np.asarray(points, dtype=float)
+
+    # Normalize true labels: >0 = model, 0 = outlier
+    true_display = np.where(true_arr > 0, true_arr - 1, -1)
+
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4.5), facecolor="white")
+
+    _plot_labeled_points_on_axis(axes[0], None, pts, true_display, title="Ground truth")
+    _plot_labeled_points_on_axis(axes[1], None, pts, pred_arr, title=method_name or "Predicted")
+
+    title_parts = []
+    if sample_name:
+        title_parts.append(sample_name)
+    if error_pct is not None:
+        title_parts.append(f"error={error_pct:.2f}%")
+    if title_parts:
+        fig.suptitle(" | ".join(title_parts), fontsize=12, weight="bold")
+
+    handles, labels = axes[1].get_legend_handles_labels()
+    if handles:
+        fig.legend(handles, labels, loc="lower center", ncol=min(len(labels), 6), frameon=False)
+    fig.tight_layout(rect=(0.0, 0.06, 1.0, 0.93))
+    fig.savefig(output, dpi=160)
+    plt.close(fig)
+
+
+def plot_thesis_multi_method_comparison(
+    points: np.ndarray,
+    true_labels: np.ndarray,
+    method_results: list[tuple[str, np.ndarray, float]],
+    output_path: str | Path,
+    *,
+    sample_name: str = "",
+    image: np.ndarray | None = None,
+) -> None:
+    """Multi-method comparison figure for thesis.
+
+    First column: ground truth. Remaining columns: one per method.
+    method_results: list of (method_name, predicted_labels, error_pct).
+    If *image* is provided, it is used as the background for every subplot.
+    """
+    output = Path(output_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    true_arr = np.asarray(true_labels, dtype=int)
+    pts = np.asarray(points, dtype=float)
+    true_display = np.where(true_arr > 0, true_arr - 1, -1)
+
+    n_methods = len(method_results)
+    n_cols = n_methods + 1
+    fig, axes = plt.subplots(1, n_cols, figsize=(4.0 * n_cols, 4.2), facecolor="white")
+    if n_cols == 1:
+        axes = [axes]
+
+    _plot_labeled_points_on_axis(axes[0], image, pts, true_display, title="Ground truth")
+
+    for idx, (method_name, pred_labels, error_pct) in enumerate(method_results):
+        pred_arr = np.asarray(pred_labels, dtype=int)
+        title = f"{method_name}\nerr={error_pct:.1f}%"
+        _plot_labeled_points_on_axis(axes[idx + 1], image, pts, pred_arr, title=title)
+
+    if sample_name:
+        fig.suptitle(sample_name, fontsize=13, weight="bold")
+    fig.tight_layout(rect=(0.0, 0.0, 1.0, 0.94))
+    fig.savefig(output, dpi=160)
+    plt.close(fig)
+
+
 def plot_adelaide_image_overlay(
     image_1: np.ndarray | None,
     image_2: np.ndarray | None,

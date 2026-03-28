@@ -135,6 +135,7 @@ def _apply_dp_from_arrays(
 
     noisy_hypothesis_scores = np.asarray(hypothesis_scores, dtype=float).copy()
     noisy_point_scores = np.asarray(point_scores, dtype=float).copy()
+    # selected_models is initialized here but updated after noise injection
     selected_models = np.argsort(-noisy_hypothesis_scores)[: config.model_selection_top_k]
 
     epsilon_map = _build_budget_map(
@@ -220,6 +221,11 @@ def _apply_dp_from_arrays(
 
         else:
             raise ValueError(f"Unsupported injection point: {injection_point}")
+
+    # Re-derive model selection from (possibly noisy) hypothesis scores
+    # unless an explicit dp_on_model_selection injection already handled it.
+    if "dp_on_model_selection" not in config.injection_points:
+        selected_models = np.argsort(-noisy_hypothesis_scores)[: config.model_selection_top_k]
 
     LOGGER.info(
         "DP-HVF complete | mechanism=%s injections=%s clipped_rows=%d epsilon_mode=%s",

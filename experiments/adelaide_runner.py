@@ -73,6 +73,7 @@ class AdelaideMetricResult:
     model_count_error: int
     true_outlier_ratio: float
     predicted_outlier_ratio: float
+    misclassification_error: float
     inlier_precision: float
     inlier_recall: float
     inlier_f1: float
@@ -94,6 +95,60 @@ class AdelaideMetricResult:
 def _safe_div(numerator: float, denominator: float) -> float:
     return float(numerator / denominator) if denominator > 0 else 0.0
 
+
+
+def _compute_misclassification_error(predicted_labels: np.ndarray, true_labels: np.ndarray) -> float:
+    """Misclassification error rate following Xiao et al. (2018).
+
+    Counts data points whose predicted group assignment differs from ground
+    truth, divided by total number of data points.  For multi-model data the
+    predicted and true label IDs may not match, so we use the Hungarian
+    algorithm to find the best label mapping before counting errors.
+    """
+    true_arr = np.asarray(true_labels, dtype=int)
+    pred_arr = np.asarray(predicted_labels, dtype=int)
+    n = true_arr.size
+    if n == 0:
+        return 0.0
+
+    # Separate outliers: true label 0 = outlier, pred label -1 = outlier
+    true_inlier_mask = true_arr > 0
+    pred_inlier_mask = pred_arr >= 0
+
+    # Count outlier misclassifications
+    # True outlier predicted as inlier, or true inlier predicted as outlier
+    outlier_errors = int(np.logical_xor(true_inlier_mask, pred_inlier_mask).sum())
+
+    # For inlier-inlier assignments, find best label mapping via greedy match
+    both_inlier = true_inlier_mask & pred_inlier_mask
+    if not np.any(both_inlier):
+        return float(outlier_errors) / float(n)
+
+    true_sub = true_arr[both_inlier]
+    pred_sub = pred_arr[both_inlier]
+    true_ids = np.unique(true_sub)
+    pred_ids = np.unique(pred_sub)
+
+    # Build overlap matrix and greedily match
+    best_mapping: dict[int, int] = {}
+    used_true: set[int] = set()
+    overlap_pairs: list[tuple[int, int, int]] = []
+    for pid in pred_ids:
+        p_mask = pred_sub == pid
+        for tid in true_ids:
+            overlap = int(np.logical_and(p_mask, true_sub == tid).sum())
+            overlap_pairs.append((overlap, int(pid), int(tid)))
+    overlap_pairs.sort(reverse=True)
+    for overlap, pid, tid in overlap_pairs:
+        if pid in best_mapping or tid in used_true:
+            continue
+        best_mapping[pid] = tid
+        used_true.add(tid)
+
+    mapped_pred = np.array([best_mapping.get(int(p), -999) for p in pred_sub])
+    inlier_errors = int(np.sum(mapped_pred != true_sub))
+
+    return float(outlier_errors + inlier_errors) / float(n)
 
 
 def _compute_inlier_metrics(predicted_labels: np.ndarray, true_labels: np.ndarray) -> tuple[float, float, float]:
@@ -182,6 +237,7 @@ def build_adelaide_metric_result(predicted_labels: np.ndarray, true_labels: np.n
     true_labels_array = np.asarray(true_labels, dtype=int)
     predicted_labels_array = np.asarray(predicted_labels, dtype=int)
 
+    misclassification_error = _compute_misclassification_error(predicted_labels_array, true_labels_array)
     precision, recall, f1 = _compute_inlier_metrics(predicted_labels_array, true_labels_array)
     ari_all, nmi_all, ari_inlier, nmi_inlier = _compute_partition_metrics(predicted_labels_array, true_labels_array)
     label_purity = _compute_label_purity(predicted_labels_array, true_labels_array)
@@ -198,6 +254,7 @@ def build_adelaide_metric_result(predicted_labels: np.ndarray, true_labels: np.n
         model_count_error=abs(predicted_model_count - true_model_count),
         true_outlier_ratio=float(np.mean(true_labels_array == 0)),
         predicted_outlier_ratio=float(np.mean(predicted_labels_array == -1)),
+        misclassification_error=misclassification_error,
         inlier_precision=precision,
         inlier_recall=recall,
         inlier_f1=f1,
@@ -332,6 +389,7 @@ def _build_adelaide_summary_records(records: list[dict[str, Any]]) -> list[dict[
         return []
 
     numeric_keys = (
+        "misclassification_error",
         "inlier_f1",
         "inlier_precision",
         "inlier_recall",

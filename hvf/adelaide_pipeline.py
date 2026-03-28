@@ -40,7 +40,10 @@ class AdelaideHVFConfig:
     remove_similarity_diagonal: bool = True
     voting_alpha: float = 0.65
     voting_beta: float = 0.35
-    aikose: AIKOSEConfig = AIKOSEConfig()
+    aikose: AIKOSEConfig = AIKOSEConfig(
+        search_upper_quantile=0.25,
+        log_space=True,
+    )
     pruning: PruningConfig = PruningConfig()
     clustering: ClusteringConfig = ClusteringConfig(
         parameter_distance_threshold=0.08,
