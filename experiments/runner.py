@@ -138,8 +138,18 @@ def run_experiments(config: ExperimentConfig) -> ExperimentResultBundle:
             dp_result = apply_dp_hvf(hvf_result, config=dp_config, rng=rng)
             dp_summary = _summarize_privacy(dp_config, dp_result.privacy_reports)
 
-            if "dp_on_model_selection" in config.dp_injection_points and dp_result.selected_model_indices.size > 0:
+            # Recompute ALL downstream outputs from DP-selected models so
+            # that metrics reflect full post-DP evaluation.
+            if dp_result.selected_model_indices.size > 0:
                 predicted_models = hvf_result.hypotheses[dp_result.selected_model_indices]
+                # Re-derive labels from the DP-selected hypothesis subset.
+                from privacy.dp_pipeline import reconstruct_labels_from_selected_hypotheses
+                predicted_labels = reconstruct_labels_from_selected_hypotheses(
+                    residual_matrix=hvf_result.residual_matrix,
+                    scales=hvf_result.scales,
+                    selected_model_indices=dp_result.selected_model_indices,
+                )
+                outlier_mask = predicted_labels == -1
 
         metrics = build_metric_result(
             predicted_models=predicted_models,

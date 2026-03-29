@@ -17,6 +17,7 @@ from experiments.adelaide_baseline_compare import (
 )
 from experiments.adelaide_runner import AdelaideExperimentConfig, run_adelaide_experiments
 from experiments.runner import ExperimentConfig, run_experiments
+from experiments.ranking_flip import RankingFlipConfig, run_ranking_flip_experiment
 from experiments.thesis_tables import ThesisExperimentConfig, run_thesis_experiment
 from hvf.pipeline import HVFConfig, HVFPipeline
 from privacy.dp_pipeline import DPHVFConfig, apply_dp_hvf
@@ -101,6 +102,11 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--thesis-fixed-tau-tuned", type=float, default=None,
                         help="Optional tuned fixed tau for extra HVF baseline column")
     parser.add_argument("--thesis-dp-epsilons", nargs="+", type=float, default=[2.0, 1.0, 0.5, 0.2])
+    parser.add_argument(
+        "--run-ranking-flip",
+        action="store_true",
+        help="Run Experiment A: ranking flip verification under DP",
+    )
     return parser
 
 
@@ -245,6 +251,25 @@ def main() -> None:
             bundle.saved_files.get("csv", ""),
             bundle.saved_files.get("summary_csv", ""),
         )
+        return
+
+    if args.run_ranking_flip:
+        if not args.adelaide_root:
+            raise ValueError("--adelaide-root is required with --run-ranking-flip")
+        result = run_ranking_flip_experiment(
+            RankingFlipConfig(
+                dataset_root=args.adelaide_root,
+                output_dir=args.output_dir,
+                model_family=args.thesis_model_family,
+                num_hypotheses=args.hypothesis_count,
+                num_seeds=args.thesis_num_seeds,
+                epsilons=tuple(args.thesis_dp_epsilons),
+                mixed_calibration_quantile=float(args.mixed_calibration_quantile),
+                limit_files=args.adelaide_limit_files,
+            )
+        )
+        print(result.table_text)
+        LOGGER.info("Ranking flip results saved to %s", result.csv_path)
         return
 
     if args.run_thesis_table:

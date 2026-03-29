@@ -115,12 +115,50 @@ def _apply_numeric_mechanism(
 
 
 
+def _recompute_scores_from_bounded(
+    bounded_preference: np.ndarray,
+    similarity_matrix: np.ndarray | None,
+    alpha: float,
+    beta: float,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Recompute hypothesis and point scores from the bounded preference matrix.
+
+    This ensures that the published query output is consistent with the
+    sensitivity computed from the bounded matrix — a requirement for the
+    DP guarantee to hold.
+    """
+    from hvf.voting import _safe_normalize
+
+    P = np.asarray(bounded_preference, dtype=float)
+
+    # Direct preference scores (stage 2).
+    pref_h = P.sum(axis=0)
+    pref_p = P.max(axis=1)
+
+    if similarity_matrix is not None:
+        # Consistency-propagated scores (stage 1).
+        propagated = np.asarray(similarity_matrix, dtype=float) @ P
+        cons_h = propagated.sum(axis=0)
+        cons_p = propagated.max(axis=1)
+        h_scores = alpha * _safe_normalize(cons_h) + beta * _safe_normalize(pref_h)
+        p_scores = alpha * _safe_normalize(cons_p) + beta * _safe_normalize(pref_p)
+    else:
+        h_scores = _safe_normalize(pref_h)
+        p_scores = _safe_normalize(pref_p)
+
+    return h_scores, p_scores
+
+
 def _apply_dp_from_arrays(
     preference_matrix: np.ndarray,
     hypothesis_scores: np.ndarray,
     point_scores: np.ndarray,
     config: DPHVFConfig,
     rng: np.random.Generator,
+    *,
+    similarity_matrix: np.ndarray | None = None,
+    voting_alpha: float = 0.65,
+    voting_beta: float = 0.35,
 ) -> DPHVFResult:
     bounded_preference, clipped_rows = bound_point_contributions(
         preference_matrix,
@@ -133,9 +171,13 @@ def _apply_dp_from_arrays(
         clipped_rows=clipped_rows,
     )
 
-    noisy_hypothesis_scores = np.asarray(hypothesis_scores, dtype=float).copy()
-    noisy_point_scores = np.asarray(point_scores, dtype=float).copy()
-    # selected_models is initialized here but updated after noise injection
+    # Recompute scores from the bounded preference matrix so that the
+    # published query and the sensitivity/bounding are aligned.
+    bounded_h_scores, bounded_p_scores = _recompute_scores_from_bounded(
+        bounded_preference, similarity_matrix, voting_alpha, voting_beta,
+    )
+    noisy_hypothesis_scores = bounded_h_scores.copy()
+    noisy_point_scores = bounded_p_scores.copy()
     selected_models = np.argsort(-noisy_hypothesis_scores)[: config.model_selection_top_k]
 
     epsilon_map = _build_budget_map(
@@ -200,19 +242,22 @@ def _apply_dp_from_arrays(
             )
 
         elif injection_point == "dp_on_model_selection":
+            actual_k = int(max(min(config.model_selection_top_k, noisy_hypothesis_scores.size), 1))
             selected_models = exponential_mechanism_select(
                 utilities=noisy_hypothesis_scores,
                 epsilon=epsilon_i,
                 sensitivity=sensitivity_report.hypothesis_score_sensitivity,
-                top_k=config.model_selection_top_k,
+                top_k=actual_k,
                 rng=rng,
             )
+            # Each of the k sequential selections is a separate query under
+            # basic composition, so total cost is k × ε_i.
             privacy_reports.append(
                 PrivacyReport(
                     epsilon=epsilon_i,
                     sensitivity=sensitivity_report.hypothesis_score_sensitivity,
                     noise_scale=0.0,
-                    num_queries=1,
+                    num_queries=actual_k,
                     mechanism="exponential",
                     injection_point=injection_point,
                     delta=None,
@@ -258,6 +303,7 @@ def apply_dp_hvf(
         point_scores=hvf_result.voting.point_scores,
         config=config,
         rng=rng,
+        similarity_matrix=hvf_result.similarity_matrix,
     )
 
 
@@ -274,6 +320,7 @@ def apply_dp_adelaide_hvf(
         point_scores=adelaide_result.voting.point_scores,
         config=config,
         rng=rng,
+        similarity_matrix=adelaide_result.similarity_matrix,
     )
     selected_model_types = adelaide_result.hypothesis_model_types[dp_result.selected_model_indices]
     model_labels = reconstruct_labels_from_selected_hypotheses(
