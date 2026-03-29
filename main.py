@@ -204,7 +204,7 @@ def _run_single(config: SingleRunConfig) -> dict[str, float | int | str]:
         dp_result = apply_dp_hvf(hvf_result, config=dp_config, rng=rng)
         summary.update(
             {
-                "dp_effective_queries": len(dp_result.privacy_reports),
+                "dp_effective_queries": sum(r.num_queries for r in dp_result.privacy_reports),
                 "dp_selected_models": int(dp_result.selected_model_indices.size),
                 "dp_sensitivity": float(dp_result.sensitivity.hypothesis_score_sensitivity),
             }

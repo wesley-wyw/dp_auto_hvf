@@ -126,6 +126,16 @@ def _recompute_scores_from_bounded(
     This ensures that the published query output is consistent with the
     sensitivity computed from the bounded matrix — a requirement for the
     DP guarantee to hold.
+
+    **Known limitation (similarity_matrix):**  The consistency-vote stage
+    uses ``similarity_matrix @ bounded_preference``.  The similarity matrix
+    is itself derived from private data (point-wise preference correlations),
+    so treating it as a fixed, public transform is an approximation.  A
+    fully rigorous treatment would require either (a) computing the
+    similarity matrix under DP, or (b) treating the entire two-stage vote
+    as a single adaptive query with a joint sensitivity bound.  For the
+    scope of this thesis we document this as a simplifying assumption and
+    note that the direct preference component (weight β) is not affected.
     """
     from hvf.voting import _safe_normalize
 
