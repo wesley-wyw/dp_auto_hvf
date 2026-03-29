@@ -327,13 +327,27 @@ def main() -> None:
         return
 
     if args.run_experiments:
+        # Build epsilon sweep: use --dp-epsilons if provided, else fall back
+        # to a sweep around the single --epsilon value.
+        if args.mode == "dp":
+            if args.dp_epsilons:
+                exp_epsilons = tuple(args.dp_epsilons)
+            else:
+                exp_epsilons = (args.epsilon, 0.5, 0.1)
+        else:
+            exp_epsilons = (0.0,)
+
         experiment_config = ExperimentConfig(
             mode=args.mode,
             output_dir=args.output_dir,
             experiment_name=args.experiment_name,
             num_models=args.num_models,
             total_points=args.total_points,
-            epsilons=(args.epsilon, 0.5, 0.1) if args.mode == "dp" else (0.0,),
+            outlier_ratios=(args.outlier_ratio,),
+            hypothesis_counts=(args.hypothesis_count,),
+            seeds=(args.seed,),
+            epsilons=exp_epsilons,
+            noise_sigma=args.noise_sigma,
         )
         bundle = run_experiments(experiment_config)
         LOGGER.info(

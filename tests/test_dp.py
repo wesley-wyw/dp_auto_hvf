@@ -73,37 +73,64 @@ def test_dp_adelaide_pipeline_smoke() -> None:
 
 def test_dp_scores_derived_from_bounded_preference() -> None:
     """Verify that noisy scores are computed from the bounded preference matrix,
-    not from the original (unbounded) scores passed in."""
+    not from the original (unbounded) scores passed in.
+
+    Strategy: use a very large ε so noise is negligible, then check that the
+    DP output scores are closer to scores recomputed from the bounded matrix
+    than to the original unbounded scores.  This fails if the old bug (adding
+    noise to unbounded scores) is reintroduced.
+    """
+    from privacy.dp_pipeline import _recompute_scores_from_bounded
+
     rng = np.random.default_rng(42)
-    data = rng.normal(size=(80, 2))
+    # Use clustered data so preference rows have high L1 norms → clipping
+    # will actually change the matrix.
+    cluster_1 = rng.normal(loc=[0, 0], scale=0.1, size=(40, 2))
+    cluster_2 = rng.normal(loc=[3, 3], scale=0.1, size=(40, 2))
+    data = np.vstack([cluster_1, cluster_2])
 
     pipeline = HVFPipeline(HVFConfig(num_hypotheses=60, use_aikose=True))
     hvf_result = pipeline.run(data, rng=rng)
 
+    # Confirm clipping actually changes the matrix (precondition).
+    bounded, clipped = bound_point_contributions(
+        hvf_result.preference_matrix, max_contribution=1.0,
+    )
+    assert clipped > 0, "Test precondition failed: no rows were clipped"
+    assert not np.allclose(
+        hvf_result.preference_matrix, bounded
+    ), "Test precondition failed: bounded matrix is identical to original"
+
+    # Run DP with negligible noise (ε=10000).
     dp_result = apply_dp_hvf(
         hvf_result,
         DPHVFConfig(
-            epsilon=100.0,  # Very large ε → negligible noise
+            epsilon=10000.0,
             mechanism="laplace",
             injection_points=("dp_on_hypothesis_scores",),
         ),
         rng=np.random.default_rng(42),
     )
 
-    # With ε=100, noisy scores should be very close to the bounded-recomputed
-    # scores, NOT to the original unbounded scores (unless they happen to be
-    # identical, which they won't be when clipping actually changes rows).
-    bounded, _ = bound_point_contributions(
-        hvf_result.preference_matrix, max_contribution=1.0,
+    # Recompute expected scores from the bounded matrix.
+    expected_scores, _ = _recompute_scores_from_bounded(
+        bounded, hvf_result.similarity_matrix, alpha=0.65, beta=0.35,
     )
-    # The bounded matrix should differ from the original when rows are clipped.
-    original_col_sums = hvf_result.preference_matrix.sum(axis=0)
-    bounded_col_sums = bounded.sum(axis=0)
-    if not np.allclose(original_col_sums, bounded_col_sums):
-        # Clipping had an effect — verify scores diverge from original.
-        # At ε=100 the noise is ~0.01 scale, so noisy ≈ bounded-recomputed.
-        # If scores were still from unbounded, correlation with bounded would be low.
-        assert dp_result.noisy_hypothesis_scores.shape == hvf_result.voting.hypothesis_scores.shape
+    original_scores = hvf_result.voting.hypothesis_scores
+
+    # The DP output should be much closer to bounded-recomputed than to original.
+    dist_to_bounded = np.linalg.norm(dp_result.noisy_hypothesis_scores - expected_scores)
+    dist_to_original = np.linalg.norm(dp_result.noisy_hypothesis_scores - original_scores)
+
+    assert dist_to_bounded < dist_to_original, (
+        f"DP scores are closer to original ({dist_to_original:.6f}) "
+        f"than to bounded-recomputed ({dist_to_bounded:.6f}) — "
+        f"scores may not be derived from bounded preference matrix"
+    )
+    # With ε=10000, noise is ~1e-4 scale, so distance to bounded should be tiny.
+    assert dist_to_bounded < 0.1, (
+        f"DP scores deviate too much from bounded-recomputed: {dist_to_bounded:.6f}"
+    )
 
 
 def test_exponential_mechanism_num_queries_equals_k() -> None:
